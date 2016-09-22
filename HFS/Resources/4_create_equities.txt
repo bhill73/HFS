@@ -1,0 +1,39 @@
+DELETE FROM Equity
+SET IDENTITY_INSERT dbo.Equity ON
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (1, 'A_Dow','Dow Jones Industrial Average',5,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (2, 'A_Nasdaq','Nasdaq Exchange',5,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (3, 'A_SP500','Standard & Poors 500',5,'',0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (4, 'AAPL','Apple, Inc',4,1,-2000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (5, 'ADBE','Adobe, Inc',4,1,-676,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (6, 'AMAVF','Arcam Ab Ord',4,1,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (7, 'AMZN','Amazon.com, Inc',4,1,-861,0.04,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (8, 'AXON','Axovant Sciences Ltd',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (9, 'BABA','Alibaba Group Holding Ltd',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (10, 'BIIB','Biogen Idec Inc',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (11, 'BND','Total Bond Market',2,1,-250,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (12, 'DDD','3D Systems Corp',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (13, 'EBAY','eBay Inc',4,1,-500,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (14, 'FB','Facebook, Inc',4,1,-1576,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (15, 'G_old','Goin Coins',3,1,5000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (16, 'GILD','Giliad Sciences, Inc',4,1,-1315,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (17, 'GLD','Gold Trust SPDR',3,1,-2000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (18, 'GOOG','Alphabet, Inc',4,1,-2178,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (19, 'HPQ','Hewlett Packard Co',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (20, 'IBB','IShares Nasdaq Biotechnology ETF',2,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (21, 'MSFT','Microsoft Corp',4,1,-751,0.04,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (22, 'ONVO','Organovo Hldgs Inc',2,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (23, 'PYPL','PayPal Holdings, Inc',4,1,-500,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (24, 'QQQ','Nasdaq Trust Powershares',2,2,180000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (25, 'ROBO','Robo-Stox Global Robotics And Automation Index ETF',3,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (26, 'SIVR','SPDR Silver Trust Shares',3,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (27, 'SPY','S&P 500 SPDR',2,1,20000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (28, 'SSYS','Stratasys Inc (Israel)',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (29, 'VBR','Small-Cap Value ETF',2,1,4000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (30, 'VDE','Energy ETF',2,1,-7000,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (31, 'VFH','Financials ETF',2,1,-2500,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (32, 'VIG','Dividend Appreciation ETF',2,1,6500,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (33, 'VJET','Voxeljet Ag',4,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (34, 'VPU','Vanguard Utilities ETF',2,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (35, 'VWO','Vanguard Emerging Markets ETF',2,0,0,0,0);
+INSERT INTO Equity (Id, Symbol, Name, BasketId, Show, Protection, BiMoIx, SeSoIx) VALUES (36, 'XONE','Xone Inc',4,0,0,0,0);
+SET IDENTITY_INSERT dbo.Equity OFF

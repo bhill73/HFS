@@ -1,0 +1,7 @@
+DELETE FROM portfolio
+SET IDENTITY_INSERT dbo.Portfolio ON
+insert into portfolio (Id, Symbol, Name) values (1, 'BKI', 'B&K Investment');
+insert into portfolio (Id, Symbol, Name)  values (2, 'BKR', 'B&K Retirement');
+insert into portfolio  (Id, Symbol, Name) values (3, 'GNO', 'Junior's Investment');
+insert into portfolio  (Id, Symbol, Name) values (4, 'HFT', 'Hill Foundation');
+SET IDENTITY_INSERT dbo.Portfolio OFF

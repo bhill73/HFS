@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HFS.Service.Models.QuoteMetric>
+<div class="market-banner">
+@{ var date1 = string.Format("{0:dddd}, {0:MMMM} {0:d}", DateTime.Now); }
+@{ var @date2 = string.Format("{0:MMMM} {0:d}, {0:dddd}", DateTime.Now); }
+
+
+    <ul>
+        <li class="banner-field"><h3 class="date-banner">@date1</h3></li>
+        <li class="banner-field"><h2>MARKET STATUS</h2></li>
+        <li class="banner-field"><h3 class="date-banner">@date2</h3></li>
+    </ul>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Symbol)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.Last)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.Change)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.Wk52_High)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.Wk52_Low)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.PercentOffHi)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.PercentOffLo)
+            </th>
+            <th class="center-col">
+                @Html.DisplayNameFor(model => model.Prediction)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symbol)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.Last)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.Change)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.Wk52_High)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.Wk52_Low)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.PercentOffHi)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.PercentOffLo)
+                </td>
+                <td class="center-col">
+                    @Html.DisplayFor(modelItem => item.Prediction)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
+
+<link href="~/Content/Home/Index.css" rel="stylesheet"/>
+

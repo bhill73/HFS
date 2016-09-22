@@ -1,0 +1,87 @@
+﻿@*@using HFS.Helpers
+@model IEnumerable<HFS.Service.Models.LotSummaryItem>*@
+
+<p>
+    <H3>By Account</H3>
+</p>
+
+
+@(Html.Kendo().Grid<HFS.Service.Models.LotSummaryItem>()
+          .Name("ESbyAccount")
+          .Columns(columns =>
+          {
+              columns.Bound(p => p.AccountId).Title("Account").ClientFooterTemplate("Total");
+              columns.Bound(p => p.Account).Title("Name");
+              columns.Bound(p => p.Value).HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.CapitalGains).Title("Gains")
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.Dividends)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.TotalAnnualizedRate).Hidden();
+              columns.Bound(p => p.AnnualizedRate)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:center" })
+                  .Format("{0:p}")
+                  .ClientFooterTemplate("<div style='text-align:center' class='account-annualized-rate-total'></div>");
+              columns.Bound(p => p.AverageDate)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:center" })
+                  .Format("{0:MM/dd/yyyy}");
+              columns.Bound(p => p.Cost)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .Format("{0:c}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.DollarDays)
+                  .HeaderHtmlAttributes(new {@style = "text-align:center"})
+                  .HtmlAttributes(new {@style = "text-align:right"})
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:d}', sum)#</div>");
+
+          })
+          .Filterable()
+          .Events(e => e.DataBound("data_bound_account"))
+          .Sortable(sort => sort.AllowUnsort(false).SortMode(GridSortMode.SingleColumn))
+          .DataSource(dataSource => dataSource
+              .Ajax()
+              .Batch(false)
+              .ServerOperation(false)
+              .Model(model => model.Id(p => p.Basket))
+              .Sort(sort => sort.Add("Account"))
+              .Read(read => read.Action("GetEquitySummaryByAccountJson", "Home"))
+              .Aggregates(agg =>
+              {
+                  agg.Add(p => p.Value).Sum();
+                  agg.Add(p => p.CapitalGains).Sum();
+                  agg.Add(p => p.Dividends).Sum();
+                  agg.Add(p => p.Cost).Sum();
+                  agg.Add(p => p.DollarDays).Sum();
+                  //agg.Add(p => p.FirstPurchase).Min();
+                  //agg.Add(p => p.LastPurchase).Max();
+              })
+          )
+          .Resizable(resize => resize.Columns(true))
+          .ColumnMenu()
+          .Reorderable(reorder => reorder.Columns(true))
+)
+
+
+<script>
+
+    function data_bound_account(e) {
+        var dataItems = e.sender.dataSource.view();
+        if (dataItems.length > 0) {
+            var total = dataItems[0].get("TotalAnnualizedRate");
+            $(".account-annualized-rate-total").append((total * 100).toFixed(2) + '%');
+        }
+    }
+
+</script>

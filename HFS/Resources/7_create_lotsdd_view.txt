@@ -1,0 +1,6 @@
+CREATE VIEW as LotsDDs
+                SELECT Lot.*, IIf(SellDate Is Null,
+                (datediff(day,purchased,getdate())*cost),
+                (datediff(day,purchased,selldate)*cost))
+                 AS DollarDays
+                FROM Lot

@@ -1,0 +1,26 @@
+﻿body {
+}
+
+ul li {
+    display:inline-block;
+    list-style-type:none;
+
+}
+
+.date-banner {
+    color: darkgray;
+}
+
+.banner-field {
+    width: 33%;
+}
+
+.market-banner {
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+
+.container {
+    max-width: 1500px !important;
+}

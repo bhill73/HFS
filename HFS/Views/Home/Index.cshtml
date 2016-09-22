@@ -1,0 +1,24 @@
+﻿@model HFS.Models.InvestmentSummaryModel
+
+
+@{
+    ViewBag.Title = "Investment Summary";
+}
+
+
+
+@Html.Partial("MarketDashboard", @Model.MarketDashboard)
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("PortfolioSummary")
+
+@Html.Partial("EquitySummaryByAccount")
+
+@Html.Partial("EquitySummaryByBasket")
+
+@Html.Partial("EquitySummary")
+
+@Html.Partial("LotSummary")
+
+

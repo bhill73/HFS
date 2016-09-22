@@ -1,0 +1,74 @@
+﻿@model HFS.Entities.Models.Equity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Equity Details</h2>
+
+<div>
+    <h4>Equity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Basket.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basket.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Show)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BiMoIx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BiMoIx)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeSoIx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeSoIx)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

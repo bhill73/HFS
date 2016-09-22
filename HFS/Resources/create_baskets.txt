@@ -1,0 +1,8 @@
+DELETE FROM Basket
+SET IDENTITY_INSERT dbo.Basket ON
+INSERT INTO Basket (Id, Symbol, Name, BiMoIx, SeSoIx, Protection) VALUES (1, 'A','PowersharesQQQ', 0.04, -10.0, 1000);
+INSERT INTO Basket (Id, Symbol, Name, BiMoIx, SeSoIx, Protection) VALUES (2, 'B', 'Sector Vipers', 0.04, -10.0, 1000);
+INSERT INTO Basket (Id, Symbol, Name, BiMoIx, SeSoIx, Protection) VALUES (3, 'C', 'Commodities Plus', 0.04, -15.0, 1000 );
+INSERT INTO Basket (Id, Symbol, Name, BiMoIx, SeSoIx, Protection) VALUES (4, 'D', 'Stocks', 0.06, -15.0, 1000 );
+INSERT INTO Basket (Id, Symbol, Name, BiMoIx, SeSoIx, Protection) VALUES (5, 'E', 'Exchanges', 0.0, 0.0, 0 );
+SET IDENTITY_INSERT dbo.Basket OFF

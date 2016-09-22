@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<HFS.Service.Models.LotSummaryItem>*@
+
+<p>
+    <H3>By Portfolio</H3>
+</p>
+
+
+@(Html.Kendo().Grid<HFS.Service.Models.PortfolioSummaryItem>()
+          .Name("PortfolioSummary")
+          .Columns(columns =>
+          {
+              columns.Bound(p => p.Symbol).Title("Portfolio").ClientFooterTemplate("Total");
+              columns.Bound(p => p.Name);
+              columns.Bound(p => p.EquityTotal).HeaderHtmlAttributes(new { @style = "text-align:right" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.CashTotal)
+                  .HeaderHtmlAttributes(new { @style = "text-align:right" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.Total)
+                  .HeaderHtmlAttributes(new { @style = "text-align:right" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.GainsYtd)
+                  .HeaderHtmlAttributes(new {@style = "text-align:right"})
+                  .HtmlAttributes(new {@style = "text-align:right;"})
+                  .Format("{0:C}");
+              columns.Bound(p => p.GainsMon)
+                  .HeaderHtmlAttributes(new { @style = "text-align:right" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}");
+              columns.Bound(p => p.Performance).Title("").Width(500);
+          })
+          .Filterable()
+//          .Events(e => e.DataBound("data_bound_account"))
+          .Sortable(sort => sort.AllowUnsort(false).SortMode(GridSortMode.SingleColumn))
+          .DataSource(dataSource => dataSource
+              .Ajax()
+              .Batch(false)
+              .ServerOperation(false)
+              .Model(model => model.Id(p => p.Name))
+              .Sort(sort => sort.Add("Name"))
+              .Read(read => read.Action("GetPortfolioSummaryJson", "Home"))
+              .Aggregates(agg =>
+              {
+                  agg.Add(p => p.EquityTotal).Sum();
+                  agg.Add(p => p.CashTotal).Sum();
+                  agg.Add(p => p.Total).Sum();
+              })
+          )
+          .Resizable(resize => resize.Columns(true))
+          .ColumnMenu()
+          .Reorderable(reorder => reorder.Columns(true))
+)
+

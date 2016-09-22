@@ -1,0 +1,80 @@
+﻿@model HFS.Entities.Models.Quote
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Quote</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Quote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_Last)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_Last)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_Change)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_Change)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_52Wk_High)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_52Wk_High)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_52Wk_Low)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_52Wk_Low)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PEG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PEG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

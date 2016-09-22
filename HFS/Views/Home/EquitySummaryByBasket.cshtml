@@ -1,0 +1,88 @@
+﻿@*@using HFS.Helpers
+@model IEnumerable<HFS.Service.Models.LotSummaryItem>*@
+
+<p>
+    <H3>By Basket</H3>
+</p>
+
+    @(Html.Kendo().Grid<HFS.Service.Models.LotSummaryItem>()
+          .Name("ESbyBasket")
+          .Columns(columns =>
+          {
+              columns.Bound(p => p.Basket).ClientFooterTemplate("Total").Title("Basket");
+              columns.Bound(p => p.BasketName).Title("Name");
+              columns.Bound(p => p.Value).HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.AllGains)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.Dividends)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right;" })
+                  .Format("{0:C}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.TotalAnnualizedRate).Hidden();
+              columns.Bound(p => p.AnnualizedRate)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:center" })
+                  .Format("{0:p}")
+                  .ClientFooterTemplate("<div style='text-align:center' class='basket-annualized-rate-total'></div>");
+              columns.Bound(p => p.PercentGainsYtd).Title("PctGainYTD")
+                  .HeaderHtmlAttributes(new {@style = "text-align:center"})
+                  .HtmlAttributes(new {@style = "text-align:center"})
+                  .Format("{0:p}");
+              columns.Bound(p => p.AverageDate).Title("AvgDate")
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:center" })
+                  .Format("{0:MM/dd/yyyy}");
+              columns.Bound(p => p.Cost)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .Format("{0:c}")
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:c}', sum)#</div>");
+              columns.Bound(p => p.DollarDays)
+                  .HeaderHtmlAttributes(new { @style = "text-align:center" })
+                  .HtmlAttributes(new { @style = "text-align:right" })
+                  .ClientFooterTemplate("<div style='float: right'>#= kendo.format('{0:d}', sum)#</div>");
+
+          })
+          .Filterable()
+          .Events(e => e.DataBound("data_bound_basket"))
+          .Sortable(sort => sort.AllowUnsort(false).SortMode(GridSortMode.SingleColumn))
+          .DataSource(dataSource => dataSource
+              .Ajax()
+              .Batch(false)
+              .ServerOperation(false)
+              .Model(model => model.Id(p => p.Basket))
+              .Sort(sort => sort.Add("Basket"))
+              .Read(read => read.Action("GetEquitySummaryByBasketJson", "Home"))
+              .Aggregates(agg =>
+              {
+                  agg.Add(p => p.Value).Sum();
+                  agg.Add(p => p.Dividends).Sum();
+                  agg.Add(p => p.AllGains).Sum();
+                  agg.Add(p => p.Cost).Sum();
+                  agg.Add(p => p.DollarDays).Sum();
+              })
+          )
+          .Resizable(resize => resize.Columns(true))
+          .ColumnMenu()
+          .Reorderable(reorder => reorder.Columns(true))
+    )
+
+
+<script>
+    
+    function data_bound_basket(e) {
+        var dataItems = e.sender.dataSource.view();
+        if (dataItems.length > 0) {
+            var total = dataItems[0].get("TotalAnnualizedRate");
+            $(".basket-annualized-rate-total").append((total*100).toFixed(2) + '%');
+        }
+    }
+
+</script>

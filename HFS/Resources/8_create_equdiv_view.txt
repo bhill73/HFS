@@ -1,0 +1,5 @@
+CREATE VIEW as EquDiv
+                SELECT [Transaction] as Symbol, Sum(Amount) AS Dividends
+                FROM Cash
+                WHERE Code ='DIV'
+                GROUP BY [Transaction]

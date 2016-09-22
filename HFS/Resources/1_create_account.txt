@@ -1,0 +1,24 @@
+DELETE FROM dbo.Account
+SET IDENTITY_INSERT dbo.Account ON
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 3,'PayPal',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 5,'Scottrade Bank FDIC',4);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 6,'Scottrade Investment',4);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 13,'Fidelity IRA',2);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 25,'Fidelity Bank FDIC',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 26,'Fidelity Investment',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 27,'WellsFargo Savings',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 28,'WellsFargo Checking',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 32,'Bank of Internet USA',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 35,'North Island Credit',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 37,'World & Ally Savings',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 41,'Scottrade Virtual',3);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 60,'MasterCard',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 65,'Visa',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 70,'AmericanExpress',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 101,'Coins',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 102,'Gold Coins',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 103,'BaseBall Cards',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 104,'Motors',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 105,'Watches',1);
+INSERT INTO Account (Id, Name, PortfolioId) VALUES ( 106,'Loans',1);
+SET IDENTITY_INSERT dbo.Account OFF

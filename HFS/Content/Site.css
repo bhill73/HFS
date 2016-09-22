@@ -1,0 +1,100 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* #006400*/
+.navbar {
+    background: #008000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dddddd;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #f5f5f5;
+    font-weight: bold;
+}
+
+
+
+td.currency-col {
+    text-align: right;
+}
+
+td.date-col {
+    text-align: center;
+}
+
+td.percentage-col {
+    text-align: right;
+}
+
+td.number-col {
+    text-align: right;
+}
+
+td.center-col {
+    text-align: center;
+}
+
+td.center-col-7 {
+    text-align: center;
+    width: 17%;
+}
+
+
+
+th.currency-col {
+    text-align: right !important;
+}
+
+th.date-col {
+    text-align: center !important;
+}
+
+th.percentage-col {
+    text-align: right !important;
+}
+
+th.number-col {
+    text-align: right !important;
+}
+
+th.center-col {
+    text-align: center !important;
+}
+
+th.center-col-7 {
+    text-align: center !important;
+    width: 17%;
+}
+
+table.total-row tr:last-child {
+    font-weight: bold;
+}
+
+table.total-row td:first-child {
+    width:15%
+}
